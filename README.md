@@ -1,6 +1,6 @@
 # NigeriaMart Marketing Website
 
-Production-oriented one-page marketing site for **NigeriaMart**, an early-stage Nigerian B2B marketplace project.
+Production-ready one-page marketing site for **NigeriaMart**, an early-stage Nigerian B2B marketplace project.
 
 ## Stack
 
@@ -14,27 +14,39 @@ Production-oriented one-page marketing site for **NigeriaMart**, an early-stage 
 ## Run locally
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Production build:
+Production checks:
 
 ```bash
+npm run typecheck
+npm run lint
 npm run build
 npm run preview
 ```
 
-`npm run build` uses Vite when project dependencies are installed. The repository also contains a deterministic offline verification builder used in the delivery environment where the npm registry was unavailable.
+## GitHub Pages
+
+This project is configured for:
+
+- Repository: `unon4all/nigeriamart-website`
+- Vite base: `/nigeriamart-website/`
+- Expected Pages URL: `https://unon4all.github.io/nigeriamart-website/`
+
+The included `.github/workflows/deploy.yml` builds with Node 22 and publishes `dist/` to GitHub Pages. In GitHub, set **Settings → Pages → Source** to **GitHub Actions**.
+
+GitHub Pages itself must be enabled for the repository. If GitHub returns a Pages API `404 Not Found`, that is a repository/Pages configuration issue rather than a Vite or React build failure.
 
 ## Main structure
 
-- `src/components/` — shared brand, navigation, buttons, reveal primitives and the hero network visual
+- `src/components/` — shared brand, navigation, buttons, reveal primitives and hero network visual
 - `src/sections/` — complete page sections from hero through footer
 - `src/data/content.ts` — categories, benefits, concept supplier data and survey URLs
 - `src/hooks/` — scroll-spy and reduced-motion support
 - `src/styles/index.css` — Tailwind theme tokens plus the custom visual system and responsive rules
-- `src/assets/nigeriamart-icon.png` — derived from the supplied NigeriaMart brand artwork
+- `src/assets/nigeriamart-icon.png` — NigeriaMart brand icon
 - `public/privacy.html` — simple pre-launch privacy notice
 
 ## Survey links
@@ -42,8 +54,4 @@ npm run preview
 - Buyer: https://forms.gle/2RJ6NG74XtLaBXy28
 - Supplier: https://forms.gle/qpTtyupgmuiPeW4i6
 
-## Deployment notes
-
-Before public deployment, set `VITE_CANONICAL_URL` to the confirmed production domain (see `.env.example`). The footer currently uses NigeriaMart's WhatsApp Business number and project email; no social profiles are shown until official accounts exist.
-
-The marketplace UI cards are explicitly labelled as illustrative concepts. No user counts, supplier counts, transaction metrics, partnerships, testimonials or operating-scale claims are fabricated.
+The marketplace UI cards are explicitly labelled as illustrative concepts. Concept-only controls are rendered as non-interactive visual elements rather than fake buttons. No user counts, supplier counts, transaction metrics, partnerships, testimonials or operating-scale claims are fabricated.

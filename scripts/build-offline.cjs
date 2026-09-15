@@ -109,7 +109,7 @@ function compileTS(mod, filename) {
 require.extensions['.ts'] = compileTS;
 require.extensions['.tsx'] = compileTS;
 require.extensions['.css'] = (mod) => { mod.exports = {}; };
-require.extensions['.png'] = (mod, filename) => { mod.exports = `/assets/${path.basename(filename)}`; };
+require.extensions['.png'] = (mod, filename) => { mod.exports = `/nigeriamart-website/assets/${path.basename(filename)}`; };
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -199,6 +199,7 @@ function clientScript() {
   fs.copyFileSync(path.join(root, 'src/assets/nigeriamart-icon.png'), path.join(dist, 'assets/nigeriamart-icon.png'));
   fs.copyFileSync(path.join(root, 'public/favicon.png'), path.join(dist, 'favicon.png'));
   fs.copyFileSync(path.join(root, 'public/privacy.html'), path.join(dist, 'privacy.html'));
+  fs.writeFileSync(path.join(dist, '.nojekyll'), '');
 
   const html = `<!doctype html>
 <html lang="en"><head>
@@ -206,10 +207,10 @@ function clientScript() {
 <title>NigeriaMart — Nigeria's B2B Marketplace</title>
 <meta name="description" content="NigeriaMart is building a digital B2B marketplace connecting buyers, suppliers, manufacturers and businesses across Nigeria.">
 <meta name="theme-color" content="#071A16"><meta name="robots" content="index,follow">
-<link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="canonical" href="https://unon4all.github.io/nigeriamart-website/"><link rel="icon" type="image/png" href="/nigeriamart-website/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<meta property="og:type" content="website"><meta property="og:title" content="NigeriaMart — Nigeria's B2B Marketplace"><meta property="og:description" content="Building Nigeria's next-generation B2B marketplace for business discovery, sourcing and supplier connections.">
+<link rel="stylesheet" href="/nigeriamart-website/assets/site.css">
+<meta property="og:type" content="website"><meta property="og:url" content="https://unon4all.github.io/nigeriamart-website/"><meta property="og:title" content="NigeriaMart — Nigeria's B2B Marketplace"><meta property="og:description" content="Building Nigeria's next-generation B2B marketplace for business discovery, sourcing and supplier connections.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NigeriaMart — Nigeria's B2B Marketplace"><meta name="twitter:description" content="Building Nigeria's next-generation B2B marketplace.">
 </head><body><div id="root">${body}</div>${clientScript()}</body></html>`;
   fs.writeFileSync(path.join(dist, 'index.html'), html);

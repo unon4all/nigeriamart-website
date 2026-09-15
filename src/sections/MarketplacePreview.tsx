@@ -56,7 +56,7 @@ export function MarketplacePreview() {
                   );
                 })}
               </div>
-              <button className="market-sidebar__more" type="button">Explore categories <ArrowRight size={14} /></button>
+              <span className="market-sidebar__more">Explore categories <ArrowRight size={14} /></span>
             </aside>
 
             <div className="market-main">
@@ -71,19 +71,19 @@ export function MarketplacePreview() {
               <div className="market-search">
                 <Search size={20} />
                 <span>What are you looking for?</span>
-                <button type="button">Search</button>
+                <span className="market-search__action">Search</span>
               </div>
 
               <div className="market-suggestions">
                 <span>Popular:</span>
                 {['Corrugated cartons', 'Food packaging', 'Industrial equipment', 'Logistics services'].map((item) => (
-                  <button type="button" key={item}>{item}</button>
+                  <span className="market-suggestion" key={item}>{item}</span>
                 ))}
               </div>
 
               <div className="market-results__header">
                 <div><strong>{selected}</strong><span>Illustrative supplier results</span></div>
-                <button type="button"><SlidersHorizontal size={14} /> Filters <ChevronDown size={13} /></button>
+                <span className="market-filter-chip"><SlidersHorizontal size={14} /> Filters <ChevronDown size={13} /></span>
               </div>
 
               <div className="market-results">
@@ -109,9 +109,9 @@ export function MarketplacePreview() {
                         {supplier.tags.map((tag) => <span key={tag}>{tag}</span>)}
                       </div>
                     </div>
-                    <button className="supplier-card__button" type="button" aria-label={`View illustrative profile for ${supplier.name}`}>
+                    <span className="supplier-card__button" aria-hidden="true">
                       View Supplier <ArrowRight size={15} />
-                    </button>
+                    </span>
                   </motion.article>
                 ))}
               </div>

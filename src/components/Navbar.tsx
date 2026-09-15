@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Brand } from './Brand';
@@ -19,6 +19,7 @@ export function Navbar() {
   const active = useScrollSpy(ids);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18);
@@ -30,6 +31,20 @@ export function Navbar() {
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    const firstLink = mobileNavRef.current?.querySelector<HTMLAnchorElement>('a');
+    firstLink?.focus();
+
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
 
   return (
@@ -61,6 +76,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={mobileNavRef}
             id="mobile-navigation"
             className="mobile-nav"
             initial={{ opacity: 0, y: -12 }}

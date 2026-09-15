@@ -33,7 +33,7 @@ function BuyerDashboard() {
         <div><i /> Discovery active</div>
       </div>
       <div className="buyer-search-card">
-        <div className="buyer-search-card__bar"><Search size={17} /><span>Corrugated shipping cartons</span><button type="button">Search</button></div>
+        <div className="buyer-search-card__bar"><Search size={17} /><span>Corrugated shipping cartons</span><span className="buyer-search-card__action">Search</span></div>
         <div className="buyer-search-card__filters"><span>Location: Lagos</span><span>Bulk orders</span><span>Business suppliers</span></div>
       </div>
       <div className="buyer-dashboard__body">
@@ -47,7 +47,7 @@ function BuyerDashboard() {
             <motion.div key={name} className="mini-supplier" whileHover={{ x: 3 }}>
               <span className="mini-supplier__avatar">{initials}</span>
               <div><strong>{name}</strong><small>{type}</small><em><MapPin size={10} /> {location}</em></div>
-              <button type="button" aria-label={`Open ${name}`}><ArrowRight size={14} /></button>
+              <span className="mini-supplier__action" aria-hidden="true"><ArrowRight size={14} /></span>
             </motion.div>
           ))}
         </div>
@@ -57,7 +57,7 @@ function BuyerDashboard() {
           <div className="requirement-row"><ClipboardList size={15} /><div><small>Product</small><strong>Shipping cartons</strong></div></div>
           <div className="requirement-row"><Store size={15} /><div><small>Quantity</small><strong>500 units</strong></div></div>
           <div className="requirement-row"><MapPin size={15} /><div><small>Delivery</small><strong>Ikeja, Lagos</strong></div></div>
-          <button className="requirement-action" type="button">Review requirement <ArrowRight size={14} /></button>
+          <span className="requirement-action">Review requirement <ArrowRight size={14} /></span>
         </div>
       </div>
       <div className="audience-visual__note">Illustrative product concept</div>
@@ -75,7 +75,7 @@ function SupplierDashboard() {
       <div className="supplier-profile-head">
         <div className="supplier-profile-head__logo">NM</div>
         <div><span>EXAMPLE BUSINESS</span><h3>Northline Manufacturing</h3><p>Packaging & business supplies · Lagos</p></div>
-        <button type="button">Edit profile</button>
+        <span className="supplier-profile-head__action">Edit profile</span>
       </div>
       <div className="supplier-metrics">
         <div><Eye size={16} /><span>Profile visibility</span><strong>Ready</strong></div>
@@ -88,14 +88,14 @@ function SupplierDashboard() {
           {['Corrugated cartons', 'Custom print', 'Bulk packaging', 'Lagos delivery'].map((item) => (
             <span key={item}><Check size={12} /> {item}</span>
           ))}
-          <button type="button">View profile <ArrowRight size={14} /></button>
+          <span className="supplier-capabilities__action">View profile <ArrowRight size={14} /></span>
         </div>
         <div className="supplier-inquiry-card">
           <div className="supplier-inquiry-card__top"><TrendingUp size={15} /><span>New business inquiry</span></div>
           <strong>500 shipping cartons</strong>
           <p>Ikeja · Required in 3 weeks</p>
           <div className="supplier-inquiry-card__meta"><span>Relevant category</span><span>New</span></div>
-          <button type="button">Review inquiry <ArrowRight size={14} /></button>
+          <span className="supplier-inquiry-card__action">Review inquiry <ArrowRight size={14} /></span>
         </div>
       </div>
       <div className="audience-visual__note audience-visual__note--dark">Illustrative product concept</div>

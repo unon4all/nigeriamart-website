@@ -32,7 +32,7 @@ export function Footer() {
             </div>
             <div>
               <span>Company</span>
-              <a href="/privacy.html">Privacy</a>
+              <a href="/nigeriamart-website/privacy.html">Privacy</a>
             </div>
           </div>
         </div>

@@ -32,6 +32,7 @@ export function NetworkVisual() {
       onPointerMove={handlePointerMove}
       onPointerLeave={() => { mouseX.set(0.5); mouseY.set(0.5); }}
       style={reduced ? undefined : { rotateX, rotateY, transformPerspective: 1100 }}
+      role="img"
       aria-label="Concept illustration of Nigerian buyers and suppliers connecting through NigeriaMart"
     >
       <div className="network-visual__grid" />

@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build.mjs",
+    "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "build:offline": "node scripts/build-offline.mjs",
-    "preview:offline": "http-server dist -p 4173 -c-1",
+    "build:offline": "node scripts/build-offline.cjs",
+    "preview:offline": "python3 -m http.server 4173 --directory dist",
     "build:vite": "vite build",
     "qa": "node scripts/qa.cjs"
   },
