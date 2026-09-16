@@ -51,7 +51,7 @@ GitHub Pages itself must be enabled for the repository. If GitHub returns a Page
 
 ## Survey links
 
-- Buyer: https://forms.gle/2RJ6NG74XtLaBXy28
-- Supplier: https://forms.gle/qpTtyupgmuiPeW4i6
+- Buyer: https://forms.gle/SwiAMdvSeLEMvsv37
+- Supplier: https://forms.gle/SwiAMdvSeLEMvsv37
 
 The marketplace UI cards are explicitly labelled as illustrative concepts. Concept-only controls are rendered as non-interactive visual elements rather than fake buttons. No user counts, supplier counts, transaction metrics, partnerships, testimonials or operating-scale claims are fabricated.

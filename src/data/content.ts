@@ -12,8 +12,8 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
-export const BUYER_SURVEY = 'https://forms.gle/2RJ6NG74XtLaBXy28';
-export const SUPPLIER_SURVEY = 'https://forms.gle/qpTtyupgmuiPeW4i6';
+export const BUYER_SURVEY = 'https://forms.gle/SwiAMdvSeLEMvsv37';
+export const SUPPLIER_SURVEY = 'https://forms.gle/SwiAMdvSeLEMvsv37';
 
 export type Category = {
   name: string;
